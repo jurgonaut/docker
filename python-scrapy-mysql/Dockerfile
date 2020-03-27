@@ -25,13 +25,5 @@ ENV PATH=/root/.local/bin:$PATH
 
 COPY test.py .
 
-# working example 
-# FROM python:3.7-slim
-
-# RUN buildDeps='gcc python3-dev' && \
-#     apt-get update && \
-#     apt-get install --no-install-recommends -y $buildDeps default-libmysqlclient-dev && \
-#     pip3.7 install mysqlclient && \
-#     pip3.7 install scrapy && \
-#     apt-get purge -y --auto-remove $buildDeps && \
-#     rm -rf /var/cache/apt
+# NOTE: the Dockerfile generates intermidiate images (multi-stage build) to remove them
+# run "docker image prune -f" (note that this command can remove other things too so be careful)
